@@ -1,0 +1,18 @@
+How many corners does triangle have?
+two
+three
+four
+none
+three
+What is the sum of all angles of triangle?
+0
+180
+360
+120
+180
+How many types of triangle are there?
+3
+2
+1
+4
+3

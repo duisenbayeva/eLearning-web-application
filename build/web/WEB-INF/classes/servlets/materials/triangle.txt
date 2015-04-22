@@ -1,0 +1,22 @@
+A triangle is one of the basic shapes in geometry: a polygon with three corners or vertices and three sides or edges which are line segments. A triangle with vertices A, B, and C is denoted \triangle ABC.
+
+In Euclidean geometry any three points, when non-collinear, determine a unique triangle and a unique plane (i.e. a two-dimensional Euclidean space).
+
+Types of triangle
+
+By relative lengths of sides
+Triangles can be classified according to the relative lengths of their sides:
+
+    In an equilateral triangle all sides have the same length. An equilateral triangle is also a regular polygon with all angles measuring 60°.[1]
+    In an isosceles triangle, two sides are equal in length.[note 1][2] An isosceles triangle also has two angles of the same measure; namely, the angles opposite to the two sides of the same length; this fact is the content of the isosceles triangle theorem, which was known by Euclid. Some mathematicians define an isosceles triangle to have exactly two equal sides, whereas others define an isosceles triangle as one with at least two equal sides.[2] The latter definition would make all equilateral triangles isosceles triangles. The 45–45–90 right triangle, which appears in the tetrakis square tiling, is isosceles.
+
+By internal angles
+
+Triangles can also be classified according to their internal angles, measured here in degrees.
+
+    A right triangle (or right-angled triangle, formerly called a rectangled triangle) has one of its interior angles measuring 90° (a right angle). The side opposite to the right angle is the hypotenuse; it is the longest side of the right triangle. The other two sides are called the legs or catheti[4] (singular: cathetus) of the triangle. Right triangles obey the Pythagorean theorem: the sum of the squares of the lengths of the two legs is equal to the square of the length of the hypotenuse: a2 + b2 = c2, where a and b are the lengths of the legs and c is the length of the hypotenuse. Special right triangles are right triangles with additional properties that make calculations involving them easier. One of the two most famous is the 3–4–5 right triangle, where 32 + 42 = 52. In this situation, 3, 4, and 5 are a Pythagorean triple. The other one is an isosceles triangle that has 2 angles that each measure 45 degrees.
+    Triangles that do not have an angle that measures 90° are called oblique triangles.
+    A triangle that has all interior angles measuring less than 90° is an acute triangle or acute-angled triangle. If the greatest side length is c, then a2 + b2 > c2.
+    A triangle that has one interior angle that measures more than 90° is an obtuse triangle or obtuse-angled triangle. If the greatest side length is c, then a2 + b2 < c2.
+    A "triangle" with an interior angle of 180° (and collinear vertices) is degenerate.
+    A right degenerate triangle has collinear vertices, two of which are coincident.
