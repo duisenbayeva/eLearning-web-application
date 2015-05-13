@@ -3,18 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package servlets;
 
+import entities.Student;
 import interfaces.IDBConnection;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -34,13 +36,29 @@ public class login extends HttpServlet {
      */
     @EJB
     IDBConnection dbutils;
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String name = request.getParameter("name");
             String password = request.getParameter("password");
+            List<Student> stList = dbutils.getUsersByEmail(name);
+            for(Student s: stList){
+                out.println(s.getId());
+            }
             
+            /*if (st != null) {
+                HttpSession session = request.getSession(true);
+                session.setAttribute("currentUser", st);
+                //session.setAttribute("myBooks", dbUtils.getUserBooks(p.getId()));
+                //session.setAttribute("allBooks", dbUtils.getBooks());
+                response.sendRedirect("index.jsp?m=1");
+
+            } else {
+                response.sendRedirect("index.jsp?m=2");
+            }
+*/
         }
     }
 

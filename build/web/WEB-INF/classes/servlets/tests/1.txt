@@ -1,9 +1,21 @@
-How many corners does triangle have?
-two
-three
-four
-none
-three
+In a UML class diagram's representation of a class, the top, middle, and lower rectangular compartments respectively describe the _____ of the class.
+attributes, methods, and constants
+name, methods, and constants
+attributes, methods, and name
+name, attributes, and methods
+name, attributes, and methods
+A collection typically models a _____ relationship.
+many-to-many
+one-to-many
+zero-to-one
+one-to-one
+one-to-many
+In an object model, the data that an object is responsible for maintaining are represented by
+methods
+attributes
+generalizations
+specializations
+attributes
 What is the sum of all angles of triangle?
 0
 180

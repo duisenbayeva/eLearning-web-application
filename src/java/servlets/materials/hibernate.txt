@@ -1,0 +1,15 @@
+The logarithm of a number is the exponent to which another fixed value, the base, must be raised to produce that number. For example, the logarithm of 1000 to base 10 is 3, because 10 to the power 3 is 1000: 1000 = 10???10???10 = 103. More generally, for any two real numbers b and x where b is positive and b ? 1,
+
+    y=b^x\Leftrightarrow x=\log_b(y) 
+
+The logarithm to base 10 (b = 10) is called the common logarithm and has many applications in science and engineering. The natural logarithm has the irrational (transcendental) number e (? 2.718) as its base; its use is widespread in pure mathematics, especially calculus. The binary logarithm uses base 2 (b = 2) and is prominent in computer science.
+
+Logarithms were introduced by John Napier in the early 17th century as a means to simplify calculations. They were rapidly adopted by navigators, scientists, engineers, and others to perform computations more easily, using slide rules and logarithm tables. Tedious multi-digit multiplication steps can be replaced by table look-ups and simpler addition because of the fact—important in its own right—that the logarithm of a product is the sum of the logarithms of the factors:
+
+    \log_b(xy) = \log_b (x) + \log_b (y), \,
+
+provided that b, x and y are all positive and b ? 1. The present-day notion of logarithms comes from Leonhard Euler, who connected them to the exponential function in the 18th century.
+
+Logarithmic scales reduce wide-ranging quantities to smaller scopes. For example, the decibel is a logarithmic unit quantifying sound pressure and signal power ratios. In chemistry, pH is a logarithmic measure for the acidity of an aqueous solution. Logarithms are commonplace in scientific formulae, and in measurements of the complexity of algorithms and of geometric objects called fractals. They describe musical intervals, appear in formulae counting prime numbers, inform some models in psychophysics, and can aid in forensic accounting.
+
+In the same way as the logarithm reverses exponentiation, the complex logarithm is the inverse function of the exponential function applied to complex numbers. The discrete logarithm is another variant; it has applications in public-key cryptography.

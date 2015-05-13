@@ -101,7 +101,8 @@
                                 <%}                                
                             }
                         %>
-                    </div>               		
+                    </div> 
+                      <a href="subjectpage.jsp">Return</a>
                 </div>
                 <!-- end content -->
                 <!-- start sidebars -->

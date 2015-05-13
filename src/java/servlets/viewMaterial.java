@@ -49,7 +49,7 @@ public class viewMaterial extends HttpServlet {
             String name = dbutils.getTopic(id).getName();
             out.println(name);
             //String videoUrl = dbutils.getTopic(id).getVideoUrl();
-            String fileUrl = "C:\\Users\\asusa\\Documents\\NetBeansProjects\\elearning2\\src\\java\\servlets\\materials\\"+name+".txt";
+            String fileUrl = "C:\\Users\\bduis_000\\Documents\\NetBeansProjects\\WebUser\\src\\java\\servlets\\materials\\"+name+".txt";
             BufferedReader reader;
             ArrayList<String> text = new ArrayList<>();
             ServletContext c = request.getServletContext();

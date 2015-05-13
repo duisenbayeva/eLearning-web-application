@@ -50,7 +50,9 @@ String m = request.getParameter("m");
                     <li><a href="#">Forum</a></li>
                     <% if(currentUser!=null){%>
                     <li><a href="#" class="user"><%= currentUser.getName() %></a></li>
-                    <li><a href="#" class="user">log out</a></li><% }%>
+                    <li><a href="#" class="user">log out</a></li>
+                    <p><%= currentUser.getName() %></p>
+                    <% }%>
                 </ul>                
             </div>
         </div>
@@ -79,7 +81,7 @@ String m = request.getParameter("m");
                 </div>
                 <!-- start content -->
                 <div id="content">
-                    <div class="flower"><img src="images/img06.jpg" alt="" width="510" height="250" /></div>
+                    <div class="flower"><img src="images/imgfon.jpg" alt="" width="450" height="250" /></div>
                     <div class="post">
                         <h1 class="title">Welcome to Our Website!</h1>                        
                         <div class="entry">

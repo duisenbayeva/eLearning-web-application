@@ -50,7 +50,7 @@ public class beginTest extends HttpServlet {
             List<Test> test = dbutils.getTestListOfTopic(sid, tid, c);
             Long testid = test.get(0).getId();            
             //out.println(testid);
-            String testUrl = "C:\\Users\\asusa\\Documents\\NetBeansProjects\\elearning2\\src\\java\\servlets\\tests\\"+testid+".txt";
+            String testUrl = "C:\\Users\\bduis_000\\Documents\\NetBeansProjects\\WebUser\\src\\java\\servlets\\tests\\"+testid+".txt";
             //out.println(testUrl);
             BufferedReader reader;
             ArrayList<String> text = new ArrayList<>();
@@ -76,6 +76,7 @@ public class beginTest extends HttpServlet {
             }catch (IOException ex) {
                 System.out.println(ex.getMessage());
             }
+            
             
         }
     }

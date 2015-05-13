@@ -49,6 +49,7 @@ public interface IDBConnection {
     public List<Subject> getSubjectList();
     public List<Student> getUserList();
     public List<Student> getUsersByEmail(String email);
+    public List<Student> getUserListByNamePassword(String name, String password);
     public List<Success> getSuccessList();
     public List<Topic> getTopicListOfSubject(Long subjectid);
     public List<Test> getTestListOfTopic(Long subjectid, Long topicid, int complexity);

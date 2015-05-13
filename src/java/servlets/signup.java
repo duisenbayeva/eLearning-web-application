@@ -55,14 +55,15 @@ public class signup extends HttpServlet {
                     st.setPassword(password);
                     dbutils.createUser(st);
                     request.getSession().setAttribute("curentUser", st);
-                    response.sendRedirect("index.jsp?m=1");
+                    //response.sendRedirect("index.jsp?m=1");
                     out.println(email + " is a valid email address.");
+                    out.println(st.getName());
                 //} else {
                     //response.sendRedirect("index.jsp?m=2");
                   //  out.println("Such user exists");
                 //}
             } else {
-                //response.sendRedirect("index.jsp?m=3");
+                response.sendRedirect("index.jsp?m=2");
                 out.println("Wrong email");
             }
         }

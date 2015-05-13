@@ -104,7 +104,7 @@
                             </p>
                         </div>
                         <% } else {%>
-                        <div class="flower"><img src="images/img06.jpg" alt="" width="510" height="250" /></div>
+                        <div class="flower"><img src="images/imgfon.jpg" alt="" width="450" height="250" /></div>
                         <h1 class="title">Welcome to Our Website!</h1>
                         <div class="entry">
                             <p><strong>Elearning Courses</strong> is a new easy way to study, explore, and compete with your peers on your results. 

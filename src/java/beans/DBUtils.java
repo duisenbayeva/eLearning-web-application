@@ -171,4 +171,9 @@ public class DBUtils implements IDBConnection{
     public List<Test> getTestListOfTopic(Long subjectid, Long topicid, int complexity) {
         return (List<Test>)em.createNativeQuery("select * from Test where  subjectID="+subjectid+" and topicID="+topicid+" and complexity="+complexity+"", Test.class).getResultList();
     }
+
+    @Override
+    public List<Student> getUserListByNamePassword(String name, String password) {
+        return (List<Student>)em.createNativeQuery("select * from Student where name="+name+" and password="+password, Student.class).getResultList();
+    }
 }
