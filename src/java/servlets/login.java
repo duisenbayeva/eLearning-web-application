@@ -40,25 +40,26 @@ public class login extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+        PrintWriter out = response.getWriter();
+        try {
             String name = request.getParameter("name");
             String password = request.getParameter("password");
-            List<Student> stList = dbutils.getUsersByEmail(name);
-            for(Student s: stList){
-                out.println(s.getId());
-            }
-            
-            /*if (st != null) {
-                HttpSession session = request.getSession(true);
-                session.setAttribute("currentUser", st);
-                //session.setAttribute("myBooks", dbUtils.getUserBooks(p.getId()));
-                //session.setAttribute("allBooks", dbUtils.getBooks());
-                response.sendRedirect("index.jsp?m=1");
-
+            List<Student> users = dbutils.getUserList();
+            if (users != null && !users.isEmpty()) {
+                for (Student p : users) {
+                    if (p.getName().equals(name) && p.getPassword().equals(password)) {
+                        HttpSession session = request.getSession(true);
+                        session.setAttribute("currentUser", p);
+                        //session.setAttribute("myBooks", dbutils.getUserBooks(p.getId()));
+                        //session.setAttribute("allBooks", dbutils.getBooks());
+                        response.sendRedirect("profile.jsp");
+                    }
+                }
             } else {
-                response.sendRedirect("index.jsp?m=2");
+                response.sendRedirect("index.jsp");
             }
-*/
+        } catch (IOException e) {
+            out.print(e.getMessage() + e.getCause());
         }
     }
 

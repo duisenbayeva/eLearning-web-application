@@ -107,9 +107,9 @@ String m = request.getParameter("m");
                             <form id="searchform" method="get" action="login">
                                 <div>
                                     <h2>Login</h2>
-                                    <input type="text" name="s" id="s" size="15" value="" placeholder="enter your name"/>
-                                    <input type="text" name="s" id="s" size="15" value="" placeholder="enter your password"/>
-                                    <input type="submit" name="s"   value="Login" />
+                                    <input type="text" name="name" id="s" size="15" value="" placeholder="enter your name"/>
+                                    <input type="text" name="password" id="s" size="15" value="" placeholder="enter your password"/>
+                                    <input type="submit" value="Login" />
                                 </div>
                             </form>
                         </li>
