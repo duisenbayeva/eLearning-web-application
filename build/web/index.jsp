@@ -29,7 +29,7 @@ String m = request.getParameter("m");
                 success: function(msg) {
                     var res = JSON.parse(msg);
                     for (var x = 0; x < res.length; x++) {
-                        var str = "<a href='subjectpage.jsp?sid=" + res[x].id + "'  id='s" + res[x].id + "'>" + res[x].name + "</a>";
+                        var str = "<a href='subjectpage.jsp?sid=" + res[x].id + "'  id='s" + res[x].id + "'><h3>" + res[x].name + "</h3></a>";
                         $("#subjectList").append("<li>" + str + "</li>");
                     }
                 }
@@ -47,12 +47,7 @@ String m = request.getParameter("m");
                 <ul id="main">
                     <li class="current_page_item"><a href="index.jsp">Homepage</a></li>                
                     <li><a href="#">Test</a></li>
-                    <li><a href="#">Forum</a></li>
-                    <% if(currentUser!=null){%>
-                    <li><a href="#" class="user"><%= currentUser.getName() %></a></li>
-                    <li><a href="#" class="user">log out</a></li>
-                    <p><%= currentUser.getName() %></p>
-                    <% }%>
+                    <li><a href="#">Forum</a></li>                    
                 </ul>                
             </div>
         </div>
@@ -102,7 +97,18 @@ String m = request.getParameter("m");
                                     <input type="text" name="s" id="s" size="15" value="" />
                                 </div>
                             </form>
-                        </li>	
+                        </li>
+                        <li>
+                        <% if(currentUser!=null){%>
+                            <form id="searchform" method="get" action="logout">
+                                <div>
+                                    <h2><%= currentUser.getName() %></h2><br/>
+                                    <input type="submit" value="Log out" />
+                                </div>
+                            </form> 
+                        <% }%>
+                        </li>
+                         <% if (currentUser==null){%>
                         <li>
                             <form id="searchform" method="get" action="login">
                                 <div>
@@ -124,6 +130,7 @@ String m = request.getParameter("m");
                                 </div>
                             </form>
                         </li>
+                         <% }%>
                     </ul>
                 </div>
                 <!-- end sidebars -->

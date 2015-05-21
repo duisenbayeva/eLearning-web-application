@@ -4,12 +4,14 @@
     Author     : asusa
 --%>
 
+<%@page import="entities.Student"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <%
     ArrayList<String> test = (ArrayList<String>) request.getServletContext().getAttribute("test");
     int j=0;
+    Student currentUser = (Student)request.getSession().getAttribute("currentUser");
 %>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -30,7 +32,7 @@
                 success: function(msg) {
                     var res = JSON.parse(msg);
                     for (var x = 0; x < res.length; x++) {
-                        var str = "<a href='viewMaterial?tid=" + res[x].id + "&sid=" + sid + "'  id='s" + res[x].id + "'>" + res[x].name + "</a>";
+                        var str = "<a href='viewMaterial?tid=" + res[x].id + "&sid=" + sid + "'  id='s" + res[x].id + "'><h3>" + res[x].name + "</h3></a>";
                         $("#topicList").append("<li>" + str + "</li>");
                     }
                 }
@@ -41,7 +43,7 @@
                 success: function(msg) {
                     var res = JSON.parse(msg);
                     for (var x = 0; x < res.length; x++) {
-                        var str = "<a href='subjectpage.jsp?sid=" + res[x].id + "'  id='s" + res[x].id + "'>" + res[x].name + "</a>";
+                        var str = "<a href='subjectpage.jsp?sid=" + res[x].id + "'  id='s" + res[x].id + "'><h3>" + res[x].name + "</h3></a>";
                         $("#subjectList").append("<li>" + str + "</li>");
                     }
                 }
@@ -65,10 +67,7 @@
                     <li class="current_page_item"><a href="index.jsp">Homepage</a></li>                
                     <li><a href="#">Test</a></li>
                     <li><a href="#">Forum</a></li>
-                </ul>
-                <ul id="feed">
-                    <li><a href="#">Register</a></li>
-                </ul>
+                </ul>                
             </div>
         </div>
         <!-- end header -->
@@ -107,8 +106,9 @@
                             <input type="radio" name="group<%= j%>" value="<%= test.get(++i)%>"><%= test.get(i)%></input>
                             <input type="radio" name="group<%= j%>" value="<%= test.get(++i)%>"><%= test.get(i)%></input>
                             <input type="hidden" name="answer<%= j%>" value="<%= test.get(++i)%>"></input> 
-                            <% j++;} %> 
-                            <input type="hidden" name="number" value="<%= j%>"></input> 
+                            <% j++;%> <br> 
+                            <%} %> 
+                            <input type="hidden" name="number" value="<%= j%>"></input> <br>
                             <input type="submit" id="chekbutton" value="Check" name="checkbutton"></input>
                         </form>
                         <% } else { %> 
@@ -128,16 +128,39 @@
                                 </div>
                             </form>
                         </li>	
+                           <li>
+                        <% if(currentUser!=null){%>
+                            <form id="searchform" method="get" action="logout">
+                                <div>
+                                    <h2><%= currentUser.getName() %></h2><br/>
+                                    <input type="submit" value="Log out" />
+                                </div>
+                            </form> 
+                        <% }%>
+                        </li>
+                         <% if (currentUser==null){%>
                         <li>
-                            <form id="searchform" method="get" action="#">
+                            <form id="searchform" method="get" action="login">
                                 <div>
                                     <h2>Login</h2>
-                                    <input type="text" name="s" id="s" size="15" value="" />
-                                    <input type="text" name="s" id="s" size="15" value="" />
-                                    <input type="submit" name="s"   value="Login" />
+                                    <input type="text" name="name" id="s" size="15" value="" placeholder="enter your name"/>
+                                    <input type="text" name="password" id="s" size="15" value="" placeholder="enter your password"/>
+                                    <input type="submit" value="Login" />
                                 </div>
                             </form>
                         </li>
+                        <li>
+                            <form id="searchform" method="get" action="signup">
+                                <div>
+                                    <h2>Sign up</h2>
+                                    <input type="text" name="name" id="s" size="15" value="" placeholder="enter your name"/>
+                                    <input type="text" name="password" id="s" size="15" value="" placeholder="enter your password"/>
+                                    <input type="text" name="email" id="s" size="15" value="" placeholder="enter your email"/>
+                                    <input type="submit" name="s"   value="Sign up" />
+                                </div>
+                            </form>
+                        </li>
+                         <% }%> 
                         <li>
                             <form id="searchform" method="get" action="beginTest">
                                 <div> 

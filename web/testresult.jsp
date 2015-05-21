@@ -4,10 +4,12 @@
     Author     : asusa
 --%>
 
+<%@page import="entities.Student"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
     boolean[] testresult = (boolean[]) request.getServletContext().getAttribute("testresult");
+    Student currentUser = (Student)request.getSession().getAttribute("currentUser");
 %>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -29,7 +31,7 @@
                 success: function(msg) {
                     var res = JSON.parse(msg);
                     for (var x = 0; x < res.length; x++) {
-                        var str = "<a href='viewMaterial?tid=" + res[x].id + "&sid=" + sid + "'  id='s" + res[x].id + "'>" + res[x].name + "</a>";
+                        var str = "<a href='viewMaterial?tid=" + res[x].id + "&sid=" + sid + "'  id='s" + res[x].id + "'><h3>" + res[x].name + "</h3></a>";
                         $("#topicList").append("<li>" + str + "</li>");
                     }
                 }
@@ -40,7 +42,7 @@
                 success: function(msg) {
                     var res = JSON.parse(msg);
                     for (var x = 0; x < res.length; x++) {
-                        var str = "<a href='subjectpage.jsp?sid=" + res[x].id + "'  id='s" + res[x].id + "'>" + res[x].name + "</a>";
+                        var str = "<a href='subjectpage.jsp?sid=" + res[x].id + "'  id='s" + res[x].id + "'><h3>" + res[x].name + "</h3></a>";
                         $("#subjectList").append("<li>" + str + "</li>");
                     }
                 }
@@ -60,10 +62,7 @@
                     <li class="current_page_item"><a href="index.jsp">Homepage</a></li>                
                     <li><a href="#">Test</a></li>
                     <li><a href="#">Forum</a></li>
-                </ul>
-                <ul id="feed">
-                    <li><a href="#">Register</a></li>
-                </ul>
+                </ul>                
             </div>
         </div>
         <!-- end header -->
@@ -78,7 +77,6 @@
                                     <h2>Subjects</h2>
                                     <ul id="subjectList"> 
                                     </ul>
-
                                 </li> 
                                 <li>
                                     <h2>Topics</h2>
@@ -92,17 +90,19 @@
                 <!-- start content -->
                 <div id="content">
                     <div class="post">
+                        <h2>Dear, <%= currentUser.getName() %>, your results:</h2>
                         <%
+                            int j=1;
                             for (int i = 0; i < testresult.length; i++) {
                                 if(testresult[i]==true){%>
-                                    <h1 class="title"><%= i%>. correct</h1>
+                                    <h1 class="title"><%= j++%>. correct</h1>
                                 <%}else{%>
-                                    <h1 class="title"><%= i%>. wrong</h1>
-                                <%}                                
-                            }
-                        %>
-                    </div> 
-                      <a href="subjectpage.jsp">Return</a>
+                                    <h1 class="title"><%= j++%>. wrong</h1>
+                                <%}                              
+                       } %>
+                    </div>
+                    
+                      <a href="subjectpage.jsp"><input type="submit" value="Return" /></a>
                 </div>
                 <!-- end content -->
                 <!-- start sidebars -->
@@ -116,16 +116,39 @@
                                 </div>
                             </form>
                         </li>	
+                           <li>
+                        <% if(currentUser!=null){%>
+                            <form id="searchform" method="get" action="logout">
+                                <div>
+                                    <h2><%= currentUser.getName() %></h2><br>
+                                    <input type="submit" value="Log out" />
+                                </div>
+                            </form> 
+                        <% }%>
+                        </li>
+                         <% if (currentUser==null){%>
                         <li>
-                            <form id="searchform" method="get" action="#">
+                            <form id="searchform" method="get" action="login">
                                 <div>
                                     <h2>Login</h2>
-                                    <input type="text" name="s" id="s" size="15" value="" />
-                                    <input type="text" name="s" id="s" size="15" value="" />
-                                    <input type="submit" name="s"   value="Login" />
+                                    <input type="text" name="name" id="s" size="15" value="" placeholder="enter your name"/>
+                                    <input type="text" name="password" id="s" size="15" value="" placeholder="enter your password"/>
+                                    <input type="submit" value="Login" />
                                 </div>
                             </form>
                         </li>
+                        <li>
+                            <form id="searchform" method="get" action="signup">
+                                <div>
+                                    <h2>Sign up</h2>
+                                    <input type="text" name="name" id="s" size="15" value="" placeholder="enter your name"/>
+                                    <input type="text" name="password" id="s" size="15" value="" placeholder="enter your password"/>
+                                    <input type="text" name="email" id="s" size="15" value="" placeholder="enter your email"/>
+                                    <input type="submit" name="s"   value="Sign up" />
+                                </div>
+                            </form>
+                        </li>
+                         <% }%> 
                         <li>
                             <form id="searchform" method="get" action="beginTest">
                                 <div> 

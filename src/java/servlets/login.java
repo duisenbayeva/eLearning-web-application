@@ -52,7 +52,7 @@ public class login extends HttpServlet {
                         session.setAttribute("currentUser", p);
                         //session.setAttribute("myBooks", dbutils.getUserBooks(p.getId()));
                         //session.setAttribute("allBooks", dbutils.getBooks());
-                        response.sendRedirect("profile.jsp");
+                        response.sendRedirect("index.jsp");
                     }
                 }
             } else {
